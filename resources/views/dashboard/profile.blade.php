@@ -9,7 +9,7 @@
     </div>
 
     <div class="section-body">
-        <h2 class="section-title">Hi, Ujang!</h2>
+        <h2 class="section-title">Hi, {{ Auth::user()->name }}!</h2>
         <p class="section-lead">
             Change information about yourself on this page.
         </p>
@@ -36,18 +36,15 @@
                         </div>
                     </div>
                     <div class="profile-widget-description">
-                        <div class="profile-widget-name">Ujang Maman <div
+                        <div class="profile-widget-name">{{ auth()->user()->name }} <div
                                 class="text-muted d-inline font-weight-normal">
                                 <div class="slash"></div> Web Developer
                             </div>
                         </div>
-                        Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a
-                        fictional character but an original hero in my family, a hero for his children and for his wife.
-                        So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John
-                            Doe'</b>.
+                        {{ auth()->user()->bio }}
                     </div>
                     <div class="card-footer text-center">
-                        <div class="font-weight-bold mb-2">Follow Ujang On</div>
+                        <div class="font-weight-bold mb-2">Follow {{ auth()->user()->name }} On</div>
                         <a href="#" class="btn btn-social-icon btn-facebook mr-1">
                             <i class="fab fa-facebook-f"></i>
                         </a>
@@ -71,57 +68,40 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <div class="form-group col-md-6 col-12">
-                                    <label>First Name</label>
-                                    <input type="text" class="form-control" value="Ujang" required="">
+                                <div class="form-group col-md-12 col-12">
+                                    <label>Name</label>
+                                    <input type="text" class="form-control" value="{{ auth()->user()->name}}"
+                                        required="" name="name">
                                     <div class="invalid-feedback">
                                         Please fill in the first name
                                     </div>
                                 </div>
-                                <div class="form-group col-md-6 col-12">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" value="Maman" required="">
-                                    <div class="invalid-feedback">
-                                        Please fill in the last name
-                                    </div>
-                                </div>
                             </div>
                             <div class="row">
-                                <div class="form-group col-md-7 col-12">
+                                <div class="form-group col-md-6 col-12">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" value="ujang@maman.com" required="">
+                                    <input type="email" class="form-control" value="{{ auth()->user()->email }}"
+                                        required="" name="email">
                                     <div class="invalid-feedback">
                                         Please fill in the email
                                     </div>
                                 </div>
-                                <div class="form-group col-md-5 col-12">
+                                <div class="form-group col-md-6 col-12">
                                     <label>Phone</label>
-                                    <input type="tel" class="form-control" value="">
+                                    <input type="tel" class="form-control" value="{{ auth()->user()->phone }}"
+                                        name="phone">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label>Bio</label>
                                     <textarea
-                                        class="form-control summernote-simple">Ujang maman is a superhero name in <b>Indonesia</b>, especially in my family. He is not a fictional character but an original hero in my family, a hero for his children and for his wife. So, I use the name as a user in this template. Not a tribute, I'm just bored with <b>'John Doe'</b>.</textarea>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="form-group mb-0 col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" name="remember" class="custom-control-input"
-                                            id="newsletter">
-                                        <label class="custom-control-label" for="newsletter">Subscribe to
-                                            newsletter</label>
-                                        <div class="text-muted form-text">
-                                            You will get new information about products, offers and promotions
-                                        </div>
-                                    </div>
+                                        class="form-control summernote-simple">{{ auth()->user()->bio }}</textarea>
                                 </div>
                             </div>
                         </div>
                         <div class="card-footer text-right">
-                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-primary" type="submit">Save Changes</button>
                         </div>
                     </form>
                 </div>
