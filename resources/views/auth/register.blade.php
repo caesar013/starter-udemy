@@ -59,6 +59,11 @@
                             <input id="password_confirmation" type="password"
                                 class="form-control @error('password-confirmation') is-invalid @enderror"
                                 name="password_confirmation">
+                            @error('password-confirmation')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                            @enderror
                         </div>
                     </div>
 
