@@ -21,4 +21,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', function () {
         return view('dashboard.home');
     })->name('home');
+
+    Route::get('/edit-profile', function () {
+        return view('dashboard.profile');
+    })->name('profile.edit');
 });
