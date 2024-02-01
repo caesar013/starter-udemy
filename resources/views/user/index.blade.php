@@ -45,14 +45,10 @@
                                 <th>Phone</th>
                                 <th>Status</th>
                             </tr>
-                            @foreach ($users as $user)
+                            @foreach ($users as $key => $user)
                             <tr>
                                 <td>
-                                    <div class="custom-checkbox custom-control">
-                                        <input type="checkbox" data-checkboxes="mygroup" class="custom-control-input"
-                                            id="checkbox-1">
-                                        <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
-                                    </div>
+                                    {{ $key + $users->firstItem() }}
                                 </td>
                                 <td>{{ $user->name }}
                                     <div class="table-links">
