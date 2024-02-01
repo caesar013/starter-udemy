@@ -71,7 +71,11 @@
                                 </td>
                                 <td>2018-01-20</td>
                                 <td>
+                                    @if ($user->email_verified_at != null)
+                                    <div class="badge badge-success">Verified</div>
+                                    @else
                                     <div class="badge badge-warning">Pending</div>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
