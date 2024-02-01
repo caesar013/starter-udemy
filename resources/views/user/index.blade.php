@@ -24,9 +24,9 @@
                 <div class="card-body">
 
                     <div class="float-right">
-                        <form>
+                        <form method="GET">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search">
+                                <input type="text" class="form-control" placeholder="Search" name="search">
                                 <div class="input-group-append">
                                     <button class="btn btn-primary"><i class="fas fa-search"></i></button>
                                 </div>
@@ -45,7 +45,7 @@
                                 <th>Phone</th>
                                 <th>Status</th>
                             </tr>
-                            @foreach ($users as $key => $user)
+                            @forelse ($users as $key => $user)
                             <tr>
                                 <td>
                                     {{ $key + $users->firstItem() }}
@@ -74,13 +74,17 @@
                                     @endif
                                 </td>
                             </tr>
-                            @endforeach
+                            @empty
+                            <tr>
+                                <td colspan="6" class="text-center">No users found</td>
+                            <tr>
+                                @endforelse
                         </table>
                     </div>
                     <div class="float-right">
                         <nav>
                             <ul class="pagination">
-                                {{ $users->links() }}
+                                {{ $users->withQueryString()->links() }}
                             </ul>
                         </nav>
                     </div>
