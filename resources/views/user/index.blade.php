@@ -45,7 +45,7 @@
                                 <th>Phone</th>
                                 <th>Status</th>
                             </tr>
-
+                            @foreach ($users as $user)
                             <tr>
                                 <td>
                                     <div class="custom-checkbox custom-control">
@@ -54,7 +54,7 @@
                                         <label for="checkbox-1" class="custom-control-label">&nbsp;</label>
                                     </div>
                                 </td>
-                                <td>Laravel 5 Tutorial: Deployment
+                                <td>{{ $user->name }}
                                     <div class="table-links">
                                         <a href="#">View</a>
                                         <div class="bullet"></div>
@@ -64,21 +64,17 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <a href="#">Web Developer</a>,
-                                    <a href="#">Tutorial</a>
+                                    {{ $user->email }}
                                 </td>
                                 <td>
-                                    <a href="#">
-                                        <img alt="image" src="../assets/img/avatar/avatar-5.png" class="rounded-circle"
-                                            width="35" data-toggle="title" title="">
-                                        <div class="d-inline-block ml-1">Rizal Fakhri</div>
-                                    </a>
+                                    {{ $user->phone }}
                                 </td>
                                 <td>2018-01-20</td>
                                 <td>
                                     <div class="badge badge-warning">Pending</div>
                                 </td>
                             </tr>
+                            @endforeach
                         </table>
                     </div>
                     <div class="float-right">
