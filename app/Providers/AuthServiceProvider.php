@@ -12,7 +12,7 @@ class AuthServiceProvider extends ServiceProvider
 {
     public static $permission = [
         'dashboard' => ['admin', 'user'],
-        'index-user' => ['admin'],
+        'index-user' => ['superadmin'],
     ];
     /**
      * The model to policy mappings for the application.

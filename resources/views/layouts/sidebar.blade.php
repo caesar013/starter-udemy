@@ -15,10 +15,12 @@
                 <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
             </ul>
         </li>
+        @can('index-user', $post)
         <li class="nav-item dropdown">
             <a href="{{ route('users.index') }}" class="nav-link "><i class="fas fa-users"></i><span>User
                     list</span></a>
         </li>
+        @endcan
         @show
     </ul>
 
