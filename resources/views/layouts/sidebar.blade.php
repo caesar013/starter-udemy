@@ -15,6 +15,9 @@
                 <li><a class="nav-link" href="index.html">Ecommerce Dashboard</a></li>
             </ul>
         </li>
+        <li class="nav-item dropdown">
+            <a href="#" class="nav-link "><i class="fas fa-users"></i><span>User list</span></a>
+        </li>
         @show
     </ul>
 
