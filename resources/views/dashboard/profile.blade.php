@@ -62,7 +62,10 @@
             </div>
             <div class="col-12 col-md-12 col-lg-7">
                 <div class="card">
-                    <form method="post" class="needs-validation" novalidate="">
+                    <form method="POST" action="{{ route('user-profile-information.update') }}" class="needs-validation"
+                        novalidate="">
+                        @method('PUT')
+                        @csrf
                         <div class="card-header">
                             <h4>Edit Profile</h4>
                         </div>
@@ -70,32 +73,44 @@
                             <div class="row">
                                 <div class="form-group col-md-12 col-12">
                                     <label>Name</label>
-                                    <input type="text" class="form-control" value="{{ auth()->user()->name}}"
-                                        required="" name="name">
+                                    <input type="text"
+                                        class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror"
+                                        value="{{ auth()->user()->name}}" name="name">
+                                    @error('name', 'updateProfileInformation')
                                     <div class="invalid-feedback">
-                                        Please fill in the first name
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-md-6 col-12">
                                     <label>Email</label>
-                                    <input type="email" class="form-control" value="{{ auth()->user()->email }}"
-                                        required="" name="email">
+                                    <input type="email"
+                                        class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror"
+                                        value="{{ auth()->user()->email }}" name="email">
+                                    @error('email', 'updateProfileInformation')
                                     <div class="invalid-feedback">
-                                        Please fill in the email
+                                        {{ $message }}
                                     </div>
+                                    @enderror
                                 </div>
                                 <div class="form-group col-md-6 col-12">
                                     <label>Phone</label>
-                                    <input type="tel" class="form-control" value="{{ auth()->user()->phone }}"
-                                        name="phone">
+                                    <input type="tel"
+                                        class="form-control @error('phone', 'updateProfileInformation') is-invalid @enderror"
+                                        value="{{ auth()->user()->phone }}" name="phone">
+                                    @error('phone', 'updateProfileInformation')
+                                    <div class="invalid-feedback">
+                                        {{ $message }}
+                                    </div>
+                                    @enderror
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col-12">
                                     <label>Bio</label>
-                                    <textarea
+                                    <textarea name="bio"
                                         class="form-control summernote-simple">{{ auth()->user()->bio }}</textarea>
                                 </div>
                             </div>
