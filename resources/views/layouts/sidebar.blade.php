@@ -16,7 +16,8 @@
             </ul>
         </li>
         <li class="nav-item dropdown">
-            <a href="#" class="nav-link "><i class="fas fa-users"></i><span>User list</span></a>
+            <a href="{{ route('users.index') }}" class="nav-link "><i class="fas fa-users"></i><span>User
+                    list</span></a>
         </li>
         @show
     </ul>
